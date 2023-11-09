@@ -1,0 +1,10 @@
+---
+  - name: Checar el uso de los discos de todos los sistemas de archivos
+    hosts: servidores
+    tasks:
+      - name: Ejecutar el comando df
+        register: dfout
+        command: "df -m"
+
+      - debug:
+          var: dfout.stdout_lines
